@@ -16,12 +16,25 @@ import ReactDOM from 'react-dom';
 //class component with render method assigned
 // extneds is like inheritence in ruby where we inherit React.Component class
 class App extends React.Component {
-	render() {
+	constructor(props) {
+		super(props);
+
+		this.state = { lat: null };
+
 		window.navigator.geolocation.getCurrentPosition(
-		position => console.log(position),
-		err => console.log(err)
-	);
-		return <div>Latitude:</div>;
+
+			position => {
+				// setState call to update set object
+				this.setState({ lat: position.coords.latitude});
+			},
+
+			err => console.log(err)
+		);
+	}
+
+	// React says we have to define render
+	render() {
+		return <div>Latitude: {this.state.lat}</div>;
 	}
 }
 
