@@ -40,7 +40,7 @@ class App extends React.Component {
 			// return <div>latitude: {this.state.lat}</div>
 			return <SeasonDisplay lat={this.state.lat} />
 		}
-		return <div>Loading!</div>;
+		return <div>Loading! Please wait while we retrive your forecast</div>;
 	}
 }
 
